@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 from tkinter import *
-from os import system
+from os import system, popen
 import re
 from sys import exit
 window = Tk()
 window.title("Logout")
-output_stream = os.popen("xrandr")
+output_stream = popen("xrandr")
 lines = output_stream.read().split("\n")
 pattern = re.compile(r"(\d+)x(\d+)\+(\d+)\+(\d+)")
 W = 700
