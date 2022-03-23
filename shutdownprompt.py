@@ -45,5 +45,5 @@ def close(e):
     if e.widget == window:
         window.destroy()
 window.bind('<Escape>', close)
-window.bind('<FocusOut>', close)
+#window.bind('<FocusOut>', close)
 window.mainloop()
