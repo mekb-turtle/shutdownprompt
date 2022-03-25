@@ -13,10 +13,13 @@ H = 125
 X = 0
 Y = 0
 def logout():
+    window.destroy()
     system("killall dwm")
 def restart():
+    window.destroy()
     system("reboot")
 def shutdown():
+    window.destroy()
     system("poweroff")
 for a in lines:
     if " connected primary" in a:
