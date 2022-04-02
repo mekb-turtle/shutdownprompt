@@ -2,7 +2,12 @@
 from tkinter import *
 from os import system, popen
 import re
-from sys import exit
+from sys import exit, argv
+logout_cmd = "killall dwm"
+if len(argv) >= 2:
+    if argv[1].startswith("logoutpid"):
+        logout_cmd = "kill " + argv[1][9:]
+print(logout_cmd)
 window = Tk()
 window.title("Logout")
 output_stream = popen("xrandr")
@@ -14,13 +19,13 @@ X = 0
 Y = 0
 def logout():
     window.destroy()
-    system("killall dwm")
+    system(logout_cmd)
 def restart():
     window.destroy()
-    system("reboot")
+    system("bash -c \"sudo reboot\"")
 def shutdown():
     window.destroy()
-    system("poweroff")
+    system("bash -c \"sudo poweroff\"")
 for a in lines:
     if " connected primary" in a:
         w, h, x, y = pattern.search(a).groups()
