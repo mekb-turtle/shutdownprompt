@@ -34,12 +34,12 @@ for a in lines:
 window.geometry(str(W)+"x"+str(H)+"+"+str(X)+"+"+str(Y))
 window.resizable(False, False)
 window.attributes('-topmost',True)
-window.configure(bg="#121216")
-logout_button   = Button(window, text="Log Out",  bg="#121216", fg="#ffeeff", command=logout)
+window.configure(bg="#0a0a0f")
+logout_button   = Button(window, text="Log Out",  bg="#0a0a0f", fg="#ffcfff", command=logout)
 logout_button   .place( x=25, y=25, width=125, height=75)
-restart_button  = Button(window, text="Restart",  bg="#121216", fg="#ffeeff", command=restart)
+restart_button  = Button(window, text="Restart",  bg="#0a0a0f", fg="#ffcfff", command=restart)
 restart_button  .place(x=175, y=25, width=125, height=75)
-shutdown_button = Button(window, text="Shutdown", bg="#121216", fg="#ffeeff", command=shutdown)
+shutdown_button = Button(window, text="Shutdown", bg="#0a0a0f", fg="#ffcfff", command=shutdown)
 shutdown_button .place(x=325, y=25, width=125, height=75)
 def close(e):
     if e.widget == window:
