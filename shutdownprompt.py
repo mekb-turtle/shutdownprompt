@@ -7,7 +7,6 @@ logout_cmd = "killall dwm"
 if len(argv) >= 2:
     if argv[1].startswith("logoutpid"):
         logout_cmd = "kill " + argv[1][9:]
-print(logout_cmd)
 window = Tk()
 window.title("Logout")
 output_stream = popen("xrandr")
