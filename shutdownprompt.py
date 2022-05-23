@@ -33,7 +33,7 @@ for a in lines:
         Y = int(h/2 - H/2 + y)
 window.geometry(str(W)+"x"+str(H)+"+"+str(X)+"+"+str(Y))
 window.resizable(False, False)
-window.attributes('-topmost',True)
+window.attributes('-topmost', True)
 window.configure(bg="#0a0a0f")
 logout_button   = Button(window, text="Log Out",  bg="#0a0a0f", fg="#ffcfff", command=logout)
 logout_button   .place( x=25, y=25, width=125, height=75)
