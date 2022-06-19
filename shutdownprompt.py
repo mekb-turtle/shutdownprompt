@@ -24,14 +24,15 @@ def shutdown():
     system("bash -c \"sudo /usr/bin/do shutdown\"")
 def suspend():
     window.destroy()
-    system("slock")
+    system("slock&")
     system("bash -c \"sudo /usr/bin/do suspend\"")
 def logout():
     window.destroy()
+    system("slock&")
     system(logout_cmd)
 def lock():
     window.destroy()
-    system("slock")
+    system("slock&")
 for a in lines:
     if " connected primary" in a:
         w, h, x, y = pattern.search(a).groups()
