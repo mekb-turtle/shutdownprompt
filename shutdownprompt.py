@@ -21,13 +21,13 @@ def logout():
     system(logout_cmd)
 def restart():
     window.destroy()
-    system("bash -c \"sudo do restart\"")
+    system("bash -c \"sudo /usr/sbin/do restart\"")
 def shutdown():
     window.destroy()
-    system("bash -c \"sudo do shutdown\"")
+    system("bash -c \"sudo /usr/bin/do shutdown\"")
 def suspend():
     window.destroy()
-    system("bash -c \"sudo do suspend\"")
+    system("bash -c \"sudo /usr/bin/do suspend\"")
 for a in lines:
     if " connected primary" in a:
         w, h, x, y = pattern.search(a).groups()
