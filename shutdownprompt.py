@@ -3,7 +3,7 @@ from tkinter import *
 from os import system, popen
 import re
 from sys import exit, argv
-logout_cmd = "killall dwm"
+logout_cmd = ""
 if len(argv) >= 2:
     if argv[1].startswith("logoutpid"):
         logout_cmd = "kill " + argv[1][9:]
@@ -12,7 +12,7 @@ window.title("Logout")
 output_stream = popen("xrandr")
 lines = output_stream.read().split("\n")
 pattern = re.compile(r"(\d+)x(\d+)\+(\d+)\+(\d+)")
-W = 475
+W = 625
 H = 125
 X = 0
 Y = 0
@@ -21,10 +21,13 @@ def logout():
     system(logout_cmd)
 def restart():
     window.destroy()
-    system("bash -c \"sudo reboot\"")
+    system("bash -c \"sudo do restart\"")
 def shutdown():
     window.destroy()
-    system("bash -c \"sudo poweroff\"")
+    system("bash -c \"sudo do shutdown\"")
+def suspend():
+    window.destroy()
+    system("bash -c \"sudo do suspend\"")
 for a in lines:
     if " connected primary" in a:
         w, h, x, y = pattern.search(a).groups()
@@ -41,6 +44,8 @@ restart_button  = Button(window, text="Restart",  bg="#0a0a0f", fg="#ffcfff", co
 restart_button  .place(x=175, y=25, width=125, height=75)
 shutdown_button = Button(window, text="Shutdown", bg="#0a0a0f", fg="#ffcfff", command=shutdown)
 shutdown_button .place(x=325, y=25, width=125, height=75)
+suspend_button  = Button(window, text="Suspend",  bg="#0a0a0f", fg="#ffcfff", command=suspend)
+suspend_button  .place(x=475, y=25, width=125, height=75)
 def close(e):
     if e.widget == window:
         window.destroy()
